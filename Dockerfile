@@ -1,15 +1,15 @@
-FROM archlinux/base:latest
+FROM archlinux:base
 
 ARG username
 ARG password
 
-MAINTAINER "jhx" <jhx0x00@gmail.com>
+LABEL maintainer="jhx <jhx0x00@gmail.com>"
 
 ADD squid.sh /sbin/squid.sh
 
 RUN pacman -Syyu --noconfirm && \
-    pacman --noconfirm -S squid libxml2 apache sudo && \
-    htpasswd -bc /etc/squid/passwd $username $password && \
+    pacman -S --noconfirm squid libxml2 apache sudo && \
+    htpasswd -bcm /etc/squid/passwd $username $password && \
     chown root:root /sbin/squid.sh && \
     chmod 755 /sbin/squid.sh
 
