@@ -1,4 +1,4 @@
-# docker-archlinux-squid
+# docker-archlinux-squid (UNMAINTAINED)
 
 ## Building
 1. Clone/download this repository
